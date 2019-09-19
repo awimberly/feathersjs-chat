@@ -25,9 +25,9 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "nodemon src/",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "clean": "shx rm -rf test/data/",
+    "mocha": "npm run clean && NODE_ENV=test mocha test/ --recursive --exit"
   },
   "dependencies": {
     "@feathersjs/authentication": "^4.3.0",
@@ -50,6 +50,7 @@
     "axios": "^0.19.0",
     "eslint": "^6.2.2",
     "mocha": "^6.2.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "shx": "^0.3.2"
   }
 }
